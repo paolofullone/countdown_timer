@@ -20,7 +20,11 @@ export default class Timer extends Component {
     if (seconds === TIME_LIMIT) {
       alert('Time to get back on business...');
       clearInterval(this.timerId)
-      this.setState({seconds: TIME_START})
+      this.setState({
+        seconds: TIME_START,
+        isDecreasing: false,
+        stopped: false,
+      })
     }
   }
 
