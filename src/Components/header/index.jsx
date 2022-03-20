@@ -8,6 +8,7 @@ function index() {
     <div class="header-right">
       <a class="active" href="https://www.xpi.com.br/" target="_blank" rel="noreferrer">XPI</a>
       <a href="https://www.betrybe.com" target="_blank" rel="noreferrer">Trybe</a>
+      <a href="https://github.com/paolofullone/countdown_timer" target="_blank" rel="noreferrer">Github</a>
       <a href="https://www.linkedin.com/in/paolofullone/" target="_blank" rel="noreferrer">Paolo</a>
     </div>
   </div>
