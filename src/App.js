@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo-xpi.svg';
 import Header from '../src/Components/header'
 
 
 const ONE_SECOND = 1000;
-const TIME_LIMIT = 0;
-const TIME_START = 5 * 60;
+const TIME_LIMIT = -1;
+const TIME_START = 60 * 5;
 
 export default class Timer extends Component {
   state = {
@@ -19,7 +18,9 @@ export default class Timer extends Component {
   componentDidUpdate() {
     const { seconds } = this.state;
     if (seconds === TIME_LIMIT) {
-      this.stop();
+      alert('Time to get back on business...');
+      clearInterval(this.timerId)
+      this.setState({seconds: TIME_START})
     }
   }
 
@@ -85,7 +86,6 @@ export default class Timer extends Component {
           <Header />
           <h2 className='container title'>Estamos só começando.</h2>
           <section className="timer container">
-            <igm src={logo}/>
             <span>{String(this.mins()).padStart(2, '0')}</span>
             <span>:</span>
             <span>{String(this.secs()).padStart(2, '0')}</span>
