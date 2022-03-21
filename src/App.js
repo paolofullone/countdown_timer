@@ -88,7 +88,7 @@ export default class Timer extends Component {
       return (
         <div>
           <Header />
-          <h2 className='container title'>Estamos só começando.</h2>
+          <h2 className='container title'>Estamos só começando...</h2>
           <section className="timer container">
             <span>{String(this.mins()).padStart(2, '0')}</span>
             <span>:</span>
