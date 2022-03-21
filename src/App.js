@@ -19,13 +19,14 @@ export default class Timer extends Component {
   componentDidUpdate() {
     const { seconds } = this.state;
     if (seconds === TIME_LIMIT) {
-      alert('Muito bom, mas o intervalo terminou!!!');
+      // alert('Muito bom, mas o intervalo terminou!!!');
       clearInterval(this.timerId)
       this.setState({
         seconds: TIME_START_IN_SECONDS,
         isDecreasing: false,
         stopped: false,
       })
+      return;
     }
   }
 
