@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from '../src/Components/header'
+import Header from './Components/header'
 
 
 const ONE_SECOND = 1000;
@@ -85,9 +85,14 @@ export default class Timer extends Component {
   }
 
   decrease = () => {
-  this.setState((prevState) => ({
+    const { seconds } = this.state;
+    if (seconds > 0) {
+      this.setState((prevState) => ({
     seconds: prevState.seconds - 60,
   }))
+    } else {
+      alert('Tempo menor que zero.')
+  }
 }
 
   render() {
