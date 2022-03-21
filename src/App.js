@@ -5,11 +5,12 @@ import Header from '../src/Components/header'
 
 const ONE_SECOND = 1000;
 const TIME_LIMIT = -1;
-const TIME_START = 60 * 5;
+const TIME_START_IN_SECONDS = 60 * 5;
+const ONE_HOUR_IN_SECONDS = 60 * 60;
 
 export default class Timer extends Component {
   state = {
-    seconds: TIME_START,
+    seconds: TIME_START_IN_SECONDS,
     isDecreasing: false,
     stopped: false,
   };
@@ -18,10 +19,10 @@ export default class Timer extends Component {
   componentDidUpdate() {
     const { seconds } = this.state;
     if (seconds === TIME_LIMIT) {
-      alert('Time to get back on business...');
+      alert('Muito bom, mas o intervalo terminou!!!');
       clearInterval(this.timerId)
       this.setState({
-        seconds: TIME_START,
+        seconds: TIME_START_IN_SECONDS,
         isDecreasing: false,
         stopped: false,
       })
@@ -53,7 +54,7 @@ export default class Timer extends Component {
 
   reset = () => {
     this.setState({
-      seconds: TIME_START,
+      seconds: TIME_START_IN_SECONDS,
       stopped: false,
     })
   }
@@ -72,9 +73,15 @@ export default class Timer extends Component {
   }
   
   increase = () => {
-    this.setState((prevState) => ({
-      seconds: prevState.seconds + 60,
-    }))
+    const { seconds } = this.state;
+    if (seconds < ONE_HOUR_IN_SECONDS) {
+
+      this.setState((prevState) => ({
+        seconds: prevState.seconds + 60,
+      }))
+    } else {
+      alert('Estamos limitados a uma hora de intervalo (que já é bastante né?)')
+    }
   }
 
   decrease = () => {
@@ -112,3 +119,5 @@ export default class Timer extends Component {
       );
     }
 }
+
+
