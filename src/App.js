@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Components/header'
-
+import Song from '../src/Components/Song'
 
 const ONE_SECOND = 1000;
 const TIME_LIMIT = -1;
@@ -119,7 +119,7 @@ export default class Timer extends Component {
               <button className="btn" type="button" onClick={ this.reset } disabled={isDecreasing}>Reset</button>
           </div>
           </div>
-
+          <Song/>
         </div>
       );
     }
