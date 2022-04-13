@@ -13,7 +13,7 @@ export default function Song() {
 
   return (
     <div className="container">
-      <button className="btn" onClick={start} disabled={playing}>Play</button>
+      <button className="btn" onClick={start} disabled={playing}>♪</button>
     </div>
   );
 }
